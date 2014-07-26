@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#b8dee6" font-directory="./fonts" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.0511,180,85.0511</Parameter>
+  <Parameter name="center">-120.2344,36.5979,6</Parameter>
+  <Parameter name="format">png</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="name"><![CDATA[Trailio Topo]]></Parameter>
+</Parameters>
+
+
+<Style name="admin" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([admin_level] = 2)</Filter>
+    <LineSymbolizer stroke-opacity="0.4" stroke="#332244" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([admin_level] = 2)</Filter>
+    <LineSymbolizer stroke-opacity="0.3" stroke="#332244" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <Filter>([admin_level] = 2)</Filter>
+    <LineSymbolizer stroke-opacity="0.25" stroke="#332244" stroke-width="0.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <Filter>([admin_level] = 2)</Filter>
+    <LineSymbolizer stroke="#332244" stroke-width="0.5" />
+  </Rule>
+</Style>
+<Layer name="admin"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>admin</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_admin]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-13857273.1951351,3833021.29715166,-12704980.4960711,5162402.44527488]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="countries" filter-mode="first" >
+  <Rule>
+    <PolygonSymbolizer fill="#ffffff" />
+  </Rule>
+</Style>
+<Style name="countries-outline" filter-mode="first" >
+  <Rule>
+    <LineSymbolizer stroke="#85c5d3" stroke-width="2" stroke-linejoin="round" />
+  </Rule>
+</Style>
+<Layer name="countries"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>countries-outline</StyleName>
+    <StyleName>countries</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/peterfrance/Documents/MapBox/project/trailio_topo/layers/countries/82945364-10m-admin-0-countries.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landuse" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#f7f6e2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <PolygonSymbolizer fill="#fafaf5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#eeeeee" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#e5c6c3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#d6ded2" />
+  </Rule>
+</Style>
+<Layer name="landuse"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>landuse</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_landusages]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.403639068766,32.5149717962055,-114.349813846304,42.0077224785163]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+       <Parameter name="id"><![CDATA[landuse]]></Parameter>
+       <Parameter name="project"><![CDATA[trailio_topo]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landuse_gen0" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#f7f6e2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <PolygonSymbolizer fill="#fafaf5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#eeeeee" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#e5c6c3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#d6ded2" />
+  </Rule>
+</Style>
+<Layer name="landuse_gen0"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>landuse_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_landusages_gen0]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.403627669377,32.5149717962055,-114.369104964096,42.0077224785163]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+       <Parameter name="id"><![CDATA[landuse_gen0]]></Parameter>
+       <Parameter name="project"><![CDATA[trailio_topo]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="landuse_gen1" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'university')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'stadium')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'sports_center')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'school')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <PolygonSymbolizer fill="#f7f6e2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'pitch')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <PolygonSymbolizer fill="#fafaf5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'parking')</Filter>
+    <PolygonSymbolizer fill="#eeeeee" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'park')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'industrial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'hospital')</Filter>
+    <PolygonSymbolizer fill="#e5c6c3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'grass')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'golf_course')</Filter>
+    <PolygonSymbolizer fill="#b8e6b8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'forest')</Filter>
+    <PolygonSymbolizer fill="#c3d9ad" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'common')</Filter>
+    <PolygonSymbolizer fill="#daf2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'commercial')</Filter>
+    <PolygonSymbolizer fill="#f2f1de" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'college')</Filter>
+    <PolygonSymbolizer fill="#fff5cc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'cemetery')</Filter>
+    <PolygonSymbolizer fill="#d6ded2" />
+  </Rule>
+</Style>
+<Layer name="landuse_gen1"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>landuse_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_landusages_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.403627669377,32.5149717962055,-114.350091706394,42.0077224785163]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+       <Parameter name="id"><![CDATA[landuse_gen1]]></Parameter>
+       <Parameter name="project"><![CDATA[trailio_topo]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="water" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#c4dff6" />
+  </Rule>
+</Style>
+<Layer name="water"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>water</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_waterareas]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.389256225834,32.5408131198704,-114.130049900464,42.086910173472]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+       <Parameter name="id"><![CDATA[water]]></Parameter>
+       <Parameter name="project"><![CDATA[trailio_topo]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="water_gen0" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#c4dff6" />
+  </Rule>
+</Style>
+<Layer name="water_gen0"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>water_gen0</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_waterareas_gen0]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.354613317104,32.6094293909056,-114.130194907389,42.086910173472]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="water_gen1" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#c4dff6" />
+  </Rule>
+</Style>
+<Layer name="water_gen1"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>water_gen1</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[osm_new_waterareas_gen1]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-124.379620306127,32.5544593611511,-114.130194907389,42.086910173472]]></Parameter>
+       <Parameter name="dbname"><![CDATA[tiles]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="n36w119" filter-mode="first" >
+  <Rule>
+    <RasterSymbolizer scaling="bilinear" comp-op="multiply" opacity="0.2" />
+  </Rule>
+</Style>
+<Layer name="n36w119"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>n36w119</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/peterfrance/Documents/MapBox/project/trailio_topo/layers/n36w119.tif]]></Parameter>
+       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="relief" filter-mode="first" >
+  <Rule>
+    <RasterSymbolizer opacity="0.2" scaling="bilinear" comp-op="multiply" />
+  </Rule>
+</Style>
+<Layer name="relief"
+  status="off"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>relief</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/Users/peterfrance/Documents/MapBox/project/trailio_topo/layers/relief.vrt]]></Parameter>
+       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

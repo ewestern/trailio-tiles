@@ -1,0 +1,34 @@
+{
+  "geo": {
+    "proj4": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+    "srid": "4326",
+    "path" : "resources/osm.pbf"
+  },
+  "db": {
+    "dbname": "tiles",
+    "user" : "peterfrance",
+    "password": "ellivretrop1"
+  },
+  "elevations" : {
+    "sample" : {
+      "table" : "osm_new_places",
+      "column" : "geometry"
+    },
+    "url" : "http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/North_America/",
+    "directory" : "resources/elevations",
+    "contours" : {
+      "table" : "contours",
+      "interval" : "10",
+      "geo_column" : "geometry",
+      "elevation_column": "elevation"
+    }
+  },
+  "raster" : {
+    "color_file" : "color_relief.txt",
+    "hillshade_dir" : "resources/hillshade/",
+    "colormap_dir" : "resources/colormap/",
+    "relief_dir" : "resources/relief/"
+  },
+  "temp_dir" : "temp/"
+}
+
