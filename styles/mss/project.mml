@@ -1,0 +1,396 @@
+{
+  "bounds": [
+    -156.0938,
+    20.6328,
+    -82.9688,
+    64.1681
+  ],
+  "center": [
+    -116.7187,
+    34.3071,
+    5
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 22,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss",
+    "palette.mms",
+    "base.mss",
+    "labels.mss",
+    "roads.mss"
+  ],
+  "Layer": [
+    {
+      "id": "countries",
+      "name": "countries",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "geometry": "polygon",
+      "Datasource": {
+        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-countries.zip",
+        "type": "shape"
+      }
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.403627669377,
+        32.5149717962055,
+        -114.369104964096,
+        42.0077224785163
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_landusages_gen0",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.403627669377,32.5149717962055,-114.369104964096,42.0077224785163",
+        "dbname": "tiles",
+        "id": "landuse_gen0",
+        "project": "trailio-tiles",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "landuse_gen0",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "landuse_gen0"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.403627669377,
+        32.5149717962055,
+        -114.350091706394,
+        42.0077224785163
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_landusages_gen1",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.403627669377,32.5149717962055,-114.350091706394,42.0077224785163",
+        "dbname": "tiles"
+      },
+      "id": "landuse_gen1",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "landuse_gen1"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.403639068766,
+        32.5149717962055,
+        -114.349813846304,
+        42.0077224785163
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(select geometry, type, round(st_area(geometry)) as area from osm_new_landusages order by area desc) as landusages",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.403639068766,32.5149717962055,-114.349813846304,42.0077224785163",
+        "dbname": "tiles"
+      },
+      "id": "landuse_overlays",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "landuse_overlays"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        -119.00041666665,
+        35.99958337335,
+        -117.99958337334999,
+        37.00041666665
+      ],
+      "id": "relief",
+      "class": "",
+      "Datasource": {
+        "file": "/home/petefrance/Code/trailio-tiles/resources/relief/all.vrt"
+      },
+      "layer": null,
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "relief",
+      "status": "off"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.354613317104,
+        32.6094293909056,
+        -114.130194907389,
+        42.086910173472
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_waterareas_gen0",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.354613317104,32.6094293909056,-114.130194907389,42.086910173472",
+        "dbname": "tiles"
+      },
+      "id": "water_gen0",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "water_gen0"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -124.390229448612,
+        32.4565853865366,
+        -114.130781640611,
+        42.050567079502
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_rivers",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.390229448612,32.4565853865366,-114.130781640611,42.050567079502",
+        "dbname": "tiles"
+      },
+      "id": "rivers",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "rivers"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -124.411830702737,
+        32.4981253442932,
+        -114.155801453946,
+        42.0377851800766
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_streams",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.411830702737,32.4981253442932,-114.155801453946,42.0377851800766",
+        "dbname": "tiles"
+      },
+      "id": "streams",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "streams"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -124.346716642305,
+        32.5434579455978,
+        -114.499949573938,
+        42.0471624342519
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_drains",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.346716642305,32.5434579455978,-114.499949573938,42.0471624342519",
+        "dbname": "tiles"
+      },
+      "id": "drains",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "drains"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.379620306127,
+        32.5544593611511,
+        -114.130194907389,
+        42.086910173472
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_waterareas_gen1",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.379620306127,32.5544593611511,-114.130194907389,42.086910173472",
+        "dbname": "tiles"
+      },
+      "id": "water_gen1",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "water_gen1"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.389256225834,
+        32.5408131198704,
+        -114.130049900464,
+        42.086910173472
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_waterareas",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.389256225834,32.5408131198704,-114.130049900464,42.086910173472",
+        "dbname": "tiles"
+      },
+      "id": "water",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "water"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -124.482003074096,
+        32.529523534486,
+        -114.130781640611,
+        42.0094989390749
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_admin",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.482003074096,32.529523534486,-114.130781640611,42.0094989390749",
+        "dbname": "tiles"
+      },
+      "id": "admin",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "admin"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -124.367277,
+        32.5520012999998,
+        -114.1430027,
+        42.0020808999998
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "osm_new_places",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.367277,32.5520012999998,-114.1430027,42.0020808999998",
+        "dbname": "tiles"
+      },
+      "id": "place",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "place"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -124.411830702737,
+        32.4565853865366,
+        -114.130781640611,
+        42.050567079502
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT geometry, type, name  FROM osm_new_waterways  WHERE type IN ('canal', 'river', 'stream')   AND name IS NOT NULL) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-124.411830702737,32.4565853865366,-114.130781640611,42.050567079502",
+        "dbname": "tiles"
+      },
+      "id": "waterway_label",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "waterway_label"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -119.000416666667,
+        35.9995833333333,
+        -117.999583333333,
+        37.0004166666667
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "contours_0",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-119.000416666667,35.9995833333333,-117.999583333333,37.0004166666667",
+        "dbname": "tiles"
+      },
+      "id": "contours",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "contours"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        -119.00041666666667,
+        35.99958333333334,
+        -117.99958333333333,
+        37.000416666666666
+      ],
+      "id": "hillshade",
+      "class": "",
+      "Datasource": {
+        "file": "/home/petefrance/Code/trailio-tiles/resources/hillshade/all.vrt"
+      },
+      "layer": null,
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "hillshade"
+    }
+  ],
+  "scale": 4.7,
+  "metatile": 2,
+  "name": "trailio tiles",
+  "description": "",
+  "attribution": ""
+}
