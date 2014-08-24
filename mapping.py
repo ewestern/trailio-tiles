@@ -139,13 +139,13 @@ mainroads = Highway(
     )}
 )
 
-buildings = Polygons(
-    name = 'buildings',
-    mapping = {
-        'building': (
-            '__any__',
-    )}
-)
+# buildings = Polygons(
+#     name = 'buildings',
+#     mapping = {
+#         'building': (
+#             '__any__',
+#     )}
+# )
 
 minorroads = Highway(
     name = 'minorroads',
@@ -374,6 +374,72 @@ amenities = Points(
             'townhall',
         ),
 })
+
+geography = Points(
+    name="geography",
+    fields = (
+        ('mountain_pass', Bool()),
+        ),
+    mapping = {
+    'natural': (
+        'peak',
+        'volcano',
+        'spring'
+    ),
+    'tourism': ('viewpoint',),
+    'amenity': ('drinking_water',)
+})
+
+infrastructure = LineStrings(
+    name="infrastructure",
+    mapping = {
+        'tourism': (
+            'alpine_hut',
+            'wilderness_hut',
+            'camp_site',
+            'information',
+
+        ),
+        'amenity': (
+            'parking',
+            'picnic_site',
+            'shelter',
+        ),
+        'shelter_type': (
+            'basic_hut',
+            'lean_to',
+            'picnic_shelter',
+            'rock_shelter'
+        )
+    }
+)
+
+infrastructure_points = Points(
+    name="infrastructure_points",
+    mapping = {
+        'tourism': (
+            'alpine_hut',
+            'wilderness_hut',
+            'camp_site',
+            'information',
+
+        ),
+        'amenity': (
+            'parking',
+            'picnic_site',
+            'shelter',
+        ),
+        'shelter_type': (
+            'basic_hut',
+            'lean_to',
+            'picnic_shelter',
+            'rock_shelter'
+        ),
+        'checkpoint': (
+            'hiking',
+        )
+    }
+) 
 
 motorways_gen1 = GeneralizedTable(
     name = 'motorways_gen1',
