@@ -6,7 +6,7 @@ def make_xml(args):
   tree = ET.parse(args.xml)
   root = tree.getroot()
   datasources = root.findall(".//Datasource")
-  items = {k: v for k,v in vars(args).items() if k != "xml"}
+  items = dict([(k, v) for (k, v) in vars(args).items() if k != "xml"])
   for source in datasources:
     missing = []
     for key, val in items.items():
