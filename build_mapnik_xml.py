@@ -1,12 +1,18 @@
 #! /usr/bin/env python
 import argparse
 import xml.etree.ElementTree as ET
-
+import os
+## todo: change hillshade path
 def make_xml(args):
   tree = ET.parse(args.xml)
   root = tree.getroot()
   datasources = root.findall(".//Datasource")
+  rules = root.findall(".//Rule")
   items = dict([(k, v) for (k, v) in vars(args).items() if k != "xml"])
+  for rule in rules:
+    fileField = rule.find('*/[@file]')
+    path = os.join(os.getcwd(), 'styles', fileField.get('file')) 
+    fileField.text = path
   for source in datasources:
     missing = []
     for key, val in items.items():
@@ -18,6 +24,11 @@ def make_xml(args):
           p.text = val
         else:
           missing.append((key, val))
+      else:
+        f = p.source.find('*/[@name="file"]')
+        cwd = os.getcwd()
+        path = os.path.join(cwd, 'resources/hillshade/all.vrt')
+        f.text = path
     for key, val in missing:
       p = ET.SubElement(source, 'Parameter')
       p.set('name', key)
