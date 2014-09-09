@@ -11,8 +11,9 @@ def make_xml(args):
   items = dict([(k, v) for (k, v) in vars(args).items() if k != "xml"])
   for rule in rules:
     fileField = rule.find('*/[@file]')
-    path = os.join(os.getcwd(), 'styles', fileField.get('file')) 
-    fileField.text = path
+    if fileField is not None:
+      path = os.path.join(os.getcwd(), 'styles', fileField.get('file')) 
+      fileField.set('file', path)
   for source in datasources:
     missing = []
     for key, val in items.items():
@@ -25,7 +26,7 @@ def make_xml(args):
         else:
           missing.append((key, val))
       else:
-        f = p.source.find('*/[@name="file"]')
+        f = source.find('*/[@name="file"]')
         cwd = os.getcwd()
         path = os.path.join(cwd, 'resources/hillshade/all.vrt')
         f.text = path
