@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/python27
 import argparse
 import xml.etree.ElementTree as ET
 
