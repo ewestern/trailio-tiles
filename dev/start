@@ -1,0 +1,11 @@
+#!/bin/sh -eu
+set -e
+
+## make sure mapnik is in current environment
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
+echo $DIR
+cd $DIR/TileStache
+echo "$DIR/tilestache_local.cfg"
+gunicorn "TileStache:WSGITileServer('$DIR/tilestache_local.cfg')"
+
+
